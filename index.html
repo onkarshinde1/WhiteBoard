@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Interactive Whiteboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="toolbar">
+    <div class="toolbar" id="toolbar">
         <div class="tool-group">
-            <button class="tool-btn active" id="penBtn" title="Pen">
-                <span class="icon">✏️</span> Pen
+            <button class="tool-btn active" id="penBtn" title="Pen" aria-label="Pen">
+                <i class="ph ph-pencil-simple"></i>
             </button>
-            <button class="tool-btn" id="highlighterBtn" title="Highlighter">
-                <span class="icon">🖍️</span> Highlighter
+            <button class="tool-btn" id="highlighterBtn" title="Highlighter" aria-label="Highlighter">
+                <i class="ph ph-highlighter"></i>
             </button>
-            <button class="tool-btn" id="eraserBtn" title="Eraser">
-                <span class="icon">🧹</span> Eraser
+            <button class="tool-btn" id="eraserBtn" title="Eraser" aria-label="Eraser">
+                <i class="ph ph-eraser"></i>
             </button>
-            <button class="tool-btn" id="pointerBtn" title="Pointer">
-                <span class="icon">👆</span> Pointer
+            <button class="tool-btn" id="pointerBtn" title="Pointer" aria-label="Pointer">
+                <i class="ph ph-cursor"></i>
             </button>
         </div>
 
-        <div class="tool-group">
-            <label>Color:</label>
-            <input type="color" id="colorPicker" class="color-picker" value="#000000">
-        </div>
+        <div class="divider"></div>
 
         <div class="tool-group">
-            <label>Size:</label>
-            <input type="range" id="sizeSlider" class="size-slider" min="1" max="50" value="3">
-            <span id="sizeDisplay" class="size-display">3px</span>
+            <div class="color-picker-wrapper" title="Color" aria-label="Color">
+                <input type="color" id="colorPicker" class="color-picker" value="#000000">
+                <i class="ph ph-palette color-icon"></i>
+            </div>
         </div>
 
-        <div class="tool-group">
-            <label>Opacity:</label>
-            <input type="range" id="opacitySlider" class="opacity-slider" min="0.1" max="1" step="0.1" value="1">
-            <span id="opacityDisplay" class="size-display">100%</span>
+        <div class="divider"></div>
+
+        <div class="tool-group slider-group">
+            <div class="slider-wrapper" title="Size">
+                <i class="ph ph-circle-half"></i>
+                <input type="range" id="sizeSlider" class="custom-slider" min="1" max="50" value="3">
+                <span id="sizeDisplay" class="value-display">3</span>
+            </div>
         </div>
 
+        <div class="divider"></div>
+
+        <div class="tool-group slider-group">
+            <div class="slider-wrapper" title="Opacity">
+                <i class="ph ph-drop"></i>
+                <input type="range" id="opacitySlider" class="custom-slider" min="0.1" max="1" step="0.1" value="1">
+                <span id="opacityDisplay" class="value-display">100%</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
         <div class="tool-group">
-            <button class="tool-btn" id="clearBtn" title="Clear Canvas">
-                <span class="icon">🗑️</span> Clear
+            <button class="tool-btn action-btn" id="undoBtn" title="Undo" aria-label="Undo">
+                <i class="ph ph-arrow-u-up-left"></i>
             </button>
-            <button class="tool-btn" id="undoBtn" title="Undo">
-                <span class="icon">↶</span> Undo
+            <button class="tool-btn action-btn" id="redoBtn" title="Redo" aria-label="Redo">
+                <i class="ph ph-arrow-u-up-right"></i>
             </button>
-            <button class="tool-btn" id="redoBtn" title="Redo">
-                <span class="icon">↷</span> Redo
+            <button class="tool-btn action-btn" id="clearBtn" title="Clear Canvas" aria-label="Clear Canvas">
+                <i class="ph ph-trash"></i>
             </button>
-        </div>
-
-        <div class="tool-group">
-            <button class="tool-btn" id="downloadBtn" title="Download">
-                <span class="icon">💾</span> Download
+            <button class="tool-btn action-btn primary" id="downloadBtn" title="Download" aria-label="Download">
+                <i class="ph ph-download-simple"></i>
             </button>
         </div>
     </div>
@@ -65,4 +83,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
